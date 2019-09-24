@@ -15,7 +15,8 @@ class DynamicController extends AbstractController
      *      "/annoucements/{page}",
      *      name="dynamic",
      *      defaults={"page"="1"},
-     *      requirements={"page"="\d+"}
+     *      requirements={"page"="\d+"},
+     *     schemes={"https"}
      * )
      * @param int $page
      * @return Response

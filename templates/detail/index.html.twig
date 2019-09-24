@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Announcement :<br/>
+    Id = {{ announcement.id }}<br/>
+    Title =  {{ announcement.title }}<br/>
+    Content = {{ announcement.content }}<br/>
+    Price = {{ announcement.price }}<br/>
+    Created Date = {{ announcement.date | date('d/m/Y') }}<br/><br/>
+    <a href="{{ path('home') }}">Go Back</a>
+{% endblock %}

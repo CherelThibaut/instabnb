@@ -11,11 +11,30 @@ class HomeController extends AbstractController
     /**
      * @Route(
      *      "/",
-     *     name="home"
+     *     name="home",
+     *     schemes={"https"}
      * )
      */
 
     public function Home() {
-        return new Response('<html><body>Home</body></html>');
+        $announcements = [
+            [
+                'id' => 1,
+                'title' => '',
+                'price' => 0,
+                'content' => '',
+                'date' => new \DateTime(),
+            ],
+            [
+                'id' => 2,
+                'title' => '',
+                'price' => 0,
+                'content' => '',
+                'date' => new \DateTime(),
+            ]
+        ];
+        return $this->render('home.html.twig', [
+            'announcements'=>$announcements
+        ]);
     }
 }

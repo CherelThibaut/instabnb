@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ListController!{% endblock %}
+
+{% block body %}
+    {% for announcement in announcements %}
+        <br/> Announcement :<br/>
+        Id = {{ announcement.id }}<br/>
+        Title =  {{ announcement.title }}<br/>
+        Content = {{ announcement.content }}<br/>
+        Price = {{ announcement.price }}<br/>
+        Created Date = {{ announcement.date | date('d/m/Y') }}<br/>
+    {% endfor %}
+{% endblock %}
