@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Announcement;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,24 +23,10 @@ class DetailController extends AbstractController
      */
     public function index(int $id)
     {
-        $announcements = [
-            [
-                'id' => 1,
-                'title' => '',
-                'price' => 0,
-                'content' => '',
-                'date' => new \DateTime(),
-            ],
-            [
-                'id' => 2,
-                'title' => '',
-                'price' => 0,
-                'content' => '',
-                'date' => new \DateTime(),
-            ]];
+        $announcement = $this->getDoctrine()->getRepository(Announcement::class)->find($id);
         return $this->render('detail/index.html.twig', [
             'controller_name' => 'DetailController',
-            'announcement' => $announcements[$id],
+            'announcement' => $announcement,
         ]);
     }
 }

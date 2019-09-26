@@ -7,8 +7,8 @@
         <br/> Announcement :<br/>
         Id = {{ announcement.id }}<br/>
         Title =  {{ announcement.title }}<br/>
-        Content = {{ announcement.content }}<br/>
-        Price = {{ announcement.price }}<br/>
-        Created Date = {{ announcement.date | date('d/m/Y') }}<br/>
+        Content = {{ announcement.getContent() }}<br/>
+        Price = {{ announcement.getPrice() }}<br/>
+        Created Date = {{ announcement.getCreatedAt() | date('d/m/Y') }}<br/>
     {% endfor %}
 {% endblock %}

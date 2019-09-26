@@ -4,12 +4,14 @@
 
 {% block body %}
     {% for announcement in announcements %}
-        <br/> Announcement :<br/>
-        Id = {{ announcement.id }}<br/>
-        Title =  {{ announcement.title }}<br/>
-        Content = {{ announcement.content }}<br/>
-        Price = {{ announcement.price }}<br/>
-        Created Date = {{ announcement.date | date('d/m/Y') }}<br/>
-        <a href='{{ path('detail', {'id': announcement.id - 1 })}}'>Détails</a><br/>
+        {% if announcement.id <= 2 %}
+            <br/> Announcement :<br/>
+            Id = {{ announcement.id }}<br/>
+            Title =  {{ announcement.title }}<br/>
+            Content = {{ announcement.content }}<br/>
+            Price = {{ announcement.price }}<br/>
+            Created Date = {{ announcement.getCreatedAt() | date('d/m/Y') }}<br/>
+            <a href='{{ path('detail', {'id': announcement.id })}}'>Détails</a><br/>
+        {% endif %}
     {% endfor %}
 {% endblock %}

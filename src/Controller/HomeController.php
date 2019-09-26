@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Announcement;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,22 +18,7 @@ class HomeController extends AbstractController
      */
 
     public function Home() {
-        $announcements = [
-            [
-                'id' => 1,
-                'title' => '',
-                'price' => 0,
-                'content' => '',
-                'date' => new \DateTime(),
-            ],
-            [
-                'id' => 2,
-                'title' => '',
-                'price' => 0,
-                'content' => '',
-                'date' => new \DateTime(),
-            ]
-        ];
+        $announcements = $this->getDoctrine()->getRepository(Announcement::class)->findAll();
         return $this->render('home.html.twig', [
             'announcements'=>$announcements
         ]);
