@@ -14,4 +14,11 @@
             <a href='{{ path('detail', {'id': announcement.id })}}'>Détails</a><br/>
         {% endif %}
     {% endfor %}
+
+    {%  if is_granted('ROLE_USER')  %}
+    <b>Bonjour {{ app.user.firstName }}</b>
+        <a href='{{ path('app_logout') }}'>logout</a>
+    {% else %}
+        <a href='{{ path('app_login') }}'>login</a>
+    {% endif %}
 {% endblock %}
